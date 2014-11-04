@@ -1,0 +1,14 @@
+{
+  "name": "acme",
+  "version": "0.0.1",
+  "main": "./lib/acme.js",
+  "dependencies": {
+    "async": "*",
+    "node-forge": "*"
+  },
+  "description": "Automated Certificate Management Environment (ACME)",
+  "keywords": ["certificate", "PKI", "X.509", "HTTPS"],
+  "author": [{ "name": "Richard Barnes", "email": "rlb@ipv.sx" }],
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}
