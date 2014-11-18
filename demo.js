@@ -1,4 +1,4 @@
-var acme = require("acme");
+var acme = require("./");
 
 acme.enableLocalUsage();
 
