@@ -1,5 +1,5 @@
 {
-  "name": "acme",
+  "name": "node-acme",
   "version": "0.0.1",
   "main": "./lib/acme.js",
   "dependencies": {
