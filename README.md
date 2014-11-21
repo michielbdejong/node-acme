@@ -30,7 +30,7 @@ when a new web server instance starts up.  This module provides
 both a fine-grained client interface and a simple one-line call
 to get a certificate.
 
-```
+```js
 // The easy way
 var certificateInfo;
 acme.getMeACertificate(serverURL, domain, function(result) {
@@ -62,7 +62,7 @@ parameters it will generate a new CA.  The state of the server can
 can be retrieved using the `getState` method, and used to restart
 the server in the same state later.
 
-```
+```js
 var server = acme.createServer();
 server.listen(8888);
 // ... handle some client transactions ...
