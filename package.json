@@ -6,9 +6,20 @@
     "async": "*",
     "node-forge": "*"
   },
+  "devDependencies": {
+    "jshint": "2.5.X",
+    "mocha": "1.18.X",
+    "chai": "1.9.X",
+    "supertest": "0.12.X"
+  },
   "description": "Automated Certificate Management Environment (ACME)",
   "keywords": ["certificate", "PKI", "X.509", "HTTPS"],
   "author": [{ "name": "Richard Barnes", "email": "rlb@ipv.sx" }],
   "license": "BSD",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "npm run test-mocha && npm run test-jshint",
+    "test-mocha": "mocha",
+    "test-jshint": "jshint ./*.js ./lib/*.js --config ./test/.jshintrc"
+  }
 }
