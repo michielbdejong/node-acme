@@ -1,16 +1,17 @@
-var acme = require("acme");
+var acme = require("./acme");
 
 acme.enableLocalUsage();
 
-const ENABLE_SERVER = false;
+const ENABLE_SERVER = true;
 if (ENABLE_SERVER) {
   var server = acme.createServer();
-  server.listen(5000);
-  console.log("Server listening on port 5000");
+  server.listen(4000);
+  console.log("Server listening on port 4000");
 }
 
-var url = "http://localhost:4000/acme";
-acme.getMeACertificate(url, "example.com", function(x) {
+var authzURL = "http://localhost:4000/acme/new-authz";
+var certURL = "http://localhost:4000/acme/new-cert";
+acme.getMeACertificate(authzURL, certURL, "example.com", function(x) {
   console.log("Result of getMeACertificate:");
   console.log(x);
   if (ENABLE_SERVER) { server.close(); }
