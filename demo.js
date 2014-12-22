@@ -1,8 +1,8 @@
-var acme = require("./acme");
+var acme = require("acme");
 
 acme.enableLocalUsage();
 
-const ENABLE_SERVER = true;
+const ENABLE_SERVER = false;
 if (ENABLE_SERVER) {
   var server = acme.createServer();
   server.listen(4000);
