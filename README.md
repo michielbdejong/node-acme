@@ -1,8 +1,8 @@
 Automated Certificate Management Environment (ACME)
 ===================================================
 
-This module provides an implementation of the ACME protocol for
-certificate management.  Its main functions are:
+This module provides a proof of concept implementation of the ACME
+protocol for certificate management.  Its main functions are:
 
 * Validation of domain possession
 * Certificate issuance
