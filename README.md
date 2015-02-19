@@ -48,7 +48,7 @@ client.authorizeKeyPair(authorizedKeyPair, domain, function(result) {
   client.issueCertificate(authorizedKeyPair, subjectKeyPair,
                           domain, function(result) {
     // Result has certificate
-  }
+  });
 });
 ```
 
