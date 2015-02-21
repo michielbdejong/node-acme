@@ -4,14 +4,14 @@ var request = require('supertest');
 var acme = require("../lib/acme");
 
 var server = acme.createServer();
-server.listen(5000);
+server.listen(4000);
 
 describe('verify demo works', function(){
   it('demo should return public and private keys', function(done){
     acme.enableLocalUsage();
 
-    var url = "http://localhost:5000/";
-    acme.getMeACertificate(url, "example.com", function(certJSON) {
+    var acmeServer = "localhost:4000";
+    acme.getMeACertificate(acmeServer, "example.com", function(certJSON) {
       var cert = JSON.stringify(certJSON);
       assert.notInclude(cert, 'error');
       assert.include(cert, 'publicKey');
