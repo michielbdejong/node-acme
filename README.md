@@ -3,11 +3,16 @@ Automated Certificate Management Environment (ACME)
 
 This package is [a bugfixing fork](https://github.com/michielbdejong/node-letsencrypt)
 of [node-acme](https://github.com/letsencrypt/node-acme).
-See this [mailing list discussion](https://groups.google.com/a/letsencrypt.org/forum/#!msg/client-dev/ctjZbCr0rS4/tVE7LxM9CyAJ) for more info.
 
-Like the upstream version, it provides a proof of concept
-implementation of the ACME protocol for certificate management.
-Its main functions are:
+The upstream original is available on npm both as [node-acme](https://www.npmjs.com/package/node-acme)
+and as [letsencrypt](https://www.npmjs.com/package/letsencrypt).
+
+Since the LetsEncrypt team is [focusing on the python client](https://groups.google.com/a/letsencrypt.org/forum/#!msg/client-dev/ctjZbCr0rS4/tVE7LxM9CyAJ),
+I published this fork on npm as [node-letsencrypt](https://www.npmjs.com/package/node-letsencrypt),
+to allow other nodejs developers to access the awesome LetsEncrypt service from nodejs, until an official nodejs client becomes available. Use at your own risk.
+
+This module provides a proof of concept implementation of
+the ACME protocol for certificate management. Its main functions are:
 
 * Validation of domain possession
 * Certificate issuance
