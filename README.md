@@ -31,17 +31,23 @@ both a fine-grained client interface and a simple one-line call
 to get a certificate.
 
 ```js
+var acme = require("node-acme");
+var acmeServer = "www.letsencrypt-demo.org";
+var domain = "example.com";
+
 // The easy way
-var certificateInfo;
-acme.getMeACertificate(serverURL, domain, function(result) {
+acme.getMeACertificate(acmeServer, domain, function(result) {
   // Result has authorizedKeyPair, subjectKeyPair,
   //            recoveryKey, certificate
 });
 
 // The hard way
-var client = acme.createClient(serverURL);
-var authorizedKeyPair = client.generateKey(keySize);
-var subjectKeyPair = client.generateKey(keySize);
+var keySize = 2048;
+var authzURL = "https://" + acmeServer + "/acme/new-authz";
+var certURL = "https://" + acmeServer + "/acme/new-cert";
+var client = acme.createClient(authzURL, certURL);
+var authorizedKeyPair = client.generateKeyPair(keySize);
+var subjectKeyPair = client.generateKeyPair(keySize);
 client.authorizeKeyPair(authorizedKeyPair, domain, function(result) {
   // Result has a recovery key
   

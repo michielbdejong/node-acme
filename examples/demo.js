@@ -15,9 +15,7 @@ if (acmeServer.match(/localhost/)) {
   console.log("Server listening on port 4000");
 }
 
-var authzURL = "https://" + acmeServer + "/acme/new-authz";
-var certURL = "https://" + acmeServer + "/acme/new-cert";
-acme.getMeACertificate(authzURL, certURL, desiredIdentifier, function(x) {
+acme.getMeACertificate(acmeServer, desiredIdentifier, function(x) {
   console.log("Result of getMeACertificate:");
   console.log(x);
   if (acmeServer.match(/localhost/)) {
