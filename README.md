@@ -27,7 +27,7 @@ Quickstart
 
 ```
 > npm install node-letsencrypt
-> node node-letsencrypt/examples/demo.js
+> node node_modules/node-letsencrypt/examples/demo.js
 ```
 
 
