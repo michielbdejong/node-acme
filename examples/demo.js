@@ -1,4 +1,4 @@
-var acme = require("./lib/acme");
+var acme = require("../lib/acme");
 
 // Uncomment this and change desiredIdentifier to a valid public DNS name if you
 // would like to test against the live demo server.

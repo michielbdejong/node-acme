@@ -5,7 +5,7 @@
 var fs = require('fs'),
     mkdirp = require('mkdirp'),
     pki = require('node-forge').pki;
-    acme = require('node-acme'),
+    acme = require('node-letsencrypt'),
     https = require('https'),
     express = require('express');
 
