@@ -13,16 +13,33 @@
     "supertest": "0.12.X"
   },
   "description": "Automated Certificate Management Environment (ACME)",
-  "keywords": ["certificate", "PKI", "X.509", "HTTPS"],
-  "author": [{ "name": "Richard Barnes", "email": "rlb@ipv.sx" }],
+  "keywords": [
+    "certificate",
+    "PKI",
+    "X.509",
+    "HTTPS"
+  ],
+  "author": "Richard Barnes (author upstream version, see README.md) <rlb@ipv.sx>",
   "contributors": [
-    { "name": "Michiel de Jong", "email": "michiel@unhosted.org" }
+    "Michiel de Jong (some bugfixes, see README.md) <michiel@unhosted.org>"
   ],
   "license": "BSD",
-  "readmeFilename": "README.md",
   "scripts": {
     "test": "npm run test-mocha && npm run test-jshint",
     "test-mocha": "mocha",
-    "test-jshint": "jshint ./*.js ./lib/*.js --config ./test/.jshintrc"
-  }
+    "test-jshint": "jshint ./*.js ./lib/*.js --config ./test/.jshintrc",
+    "start": "node server.js"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michielbdejong/node-letsencrypt"
+  },
+  "bugs": {
+    "url": "https://github.com/michielbdejong/node-letsencrypt/issues"
+  },
+  "homepage": "https://github.com/michielbdejong/node-letsencrypt"
 }
