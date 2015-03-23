@@ -1,6 +1,9 @@
 Automated Certificate Management Environment (ACME)
 ===================================================
 
+
+[![Build Status](https://travis-ci.org/michielbdejong/node-letsencrypt.svg)](https://travis-ci.org/michielbdejong/node-letsencrypt)
+
 This package is [a bugfixing fork](https://github.com/michielbdejong/node-letsencrypt)
 of [node-acme](https://github.com/letsencrypt/node-acme).
 
