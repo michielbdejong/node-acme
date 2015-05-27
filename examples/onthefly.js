@@ -152,10 +152,19 @@ function startServer(handler, whitelist) {
   var server = https.createServer({
     key: DEFAULT_KEY,
     cert: DEFAULT_CERT,
-    SNICallback: function(servername) {
+    SNICallback: function(servername, cb) {
+      function shim(result) {
+        if ('function' === typeof cb) {
+          cb(result);
+        }
+        
+        return result;
+      }
+      
       if (contexts[servername]) {
         console.log('SNI hit for ' + servername);
-        return contexts[servername];
+        // io.js and node v0.10
+        return shim(contexts[servername]);
       } else {
         console.log('SNI miss for ' + servername);
         if (servername.substr(-('.acme.invalid'.length)) === '.acme.invalid') {
@@ -170,12 +179,18 @@ function startServer(handler, whitelist) {
               console.log('saved cert to disk', servername, err);
             });
             contexts[servername] = crypto.createCredentials(options).context;
+            // io.js always requires callback
+            shim(contexts[servername]);
             delete pendingCerts[servername];
           });
         } else {
           console.log('Rejected by whitelist function');
         }
-        return defaultContext;
+        
+        // node v0.10 mistakenly returns synchronously
+        if ('function' !== typeof cb) {
+          return shim(defaultContext);
+        }
       }
     }
   }, function(req, res) {
