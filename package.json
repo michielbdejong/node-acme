@@ -3,8 +3,8 @@
   "version": "0.0.3",
   "main": "./lib/acme.js",
   "dependencies": {
-    "async": "*",
-    "node-forge": "*"
+    "async": "^1.0.0",
+    "node-forge": "^0.6.29"
   },
   "optionalDependencies": {
     "ursa": "^0.8.5"
