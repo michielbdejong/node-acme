@@ -163,7 +163,7 @@ function startServer(handler, whitelist) {
       
       if (contexts[servername]) {
         console.log('SNI hit for ' + servername);
-        // io.js and node v0.10
+        // io.js and node >= v0.11.5
         return shim(contexts[servername]);
       } else {
         console.log('SNI miss for ' + servername);
@@ -187,7 +187,7 @@ function startServer(handler, whitelist) {
           console.log('Rejected by whitelist function');
         }
         
-        // node v0.10 mistakenly returns synchronously
+        // node <= v0.11.4 mistakenly returns synchronously
         if ('function' !== typeof cb) {
           return shim(defaultContext);
         }
