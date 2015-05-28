@@ -1,10 +1,13 @@
 {
   "name": "node-letsencrypt",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./lib/acme.js",
   "dependencies": {
     "async": "*",
     "node-forge": "*"
+  },
+  "optionalDependencies": {
+    "ursa": "^0.8.5"
   },
   "devDependencies": {
     "jshint": "2.5.X",
