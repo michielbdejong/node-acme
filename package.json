@@ -26,7 +26,7 @@
   "contributors": [
     "Michiel de Jong (some bugfixes, see README.md) <michiel@unhosted.org>"
   ],
-  "license": "BSD",
+  "license": "BSD-3-Clause",
   "scripts": {
     "test": "npm run test-mocha && npm run test-jshint",
     "test-mocha": "mocha",
