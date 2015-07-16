@@ -8,7 +8,7 @@ var fs = require('fs'),
     acme = require('../lib/acme'),
     https = require('https'),
     express = require('express'),
-    crypto = require('crypto');
+    tls = require('tls');
 
 var acmeServer = 'www.letsencrypt-demo.org';
 var certificatesFolder = '/etc/letsencrypt/';
@@ -96,7 +96,7 @@ function loadContexts(callback) {
             console.log('adding certificate for ' + domain);
             callback(null, {
               domain: domain,
-              context: crypto.createCredentials(options).context
+              context: tls.createSecureContext(options)
             });
           }
         };
@@ -144,10 +144,10 @@ function registerCert(servername, callback) {
 
 function startServer(handler, whitelist) {
   var pendingCerts = {};
-  var defaultContext = crypto.createCredentials({
+  var defaultContext = tls.createSecureContext({
     key: DEFAULT_KEY,
     cert: DEFAULT_CERT
-  }).context;
+  });
   var contexts = {};
   var server = https.createServer({
     key: DEFAULT_KEY,
@@ -178,7 +178,7 @@ function startServer(handler, whitelist) {
             saveHttpsOptionsToDisk(servername, options, function(err) {
               console.log('saved cert to disk', servername, err);
             });
-            contexts[servername] = crypto.createCredentials(options).context;
+            contexts[servername] = tls.createSecureContext(options);
             // io.js always requires callback
             shim(contexts[servername]);
             delete pendingCerts[servername];
