@@ -1,1 +1,1 @@
-Deprecated, please use the [letsencrypt](https://www.npmjs.com/package/letsencrypt) npm package instead (https://github.com/Daplie/node-letsencrypt on github).
+Deprecated. I personally use my [get-lets-encrypt-servers](https://www.npmjs.com/package/get-lets-encrypt-servers) npm package nowadays, which is a simple configuration wrapper around @coolaj86's excellent [greenlock](https://www.npmjs.com/package/greenlock) package. For production use, you probably want to use [greenlock](https://www.npmjs.com/package/greenlock) directly.
