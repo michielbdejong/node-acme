@@ -3,17 +3,17 @@
   "version": "0.0.6",
   "main": "./lib/acme.js",
   "dependencies": {
-    "async": "^1.3.0",
-    "node-forge": "^0.6.34"
+    "async": "^2.6.2",
+    "node-forge": "^0.8.2"
   },
   "optionalDependencies": {
-    "ursa": "^0.8.5"
+    "ursa": "^0.9.4"
   },
   "devDependencies": {
-    "jshint": "2.5.X",
-    "mocha": "1.18.X",
-    "chai": "1.9.X",
-    "supertest": "0.12.X"
+    "jshint": "~2.10.2",
+    "mocha": "~6.1.4",
+    "chai": "~4.2.0",
+    "supertest": "~4.0.2"
   },
   "description": "Automated Certificate Management Environment (ACME)",
   "keywords": [
