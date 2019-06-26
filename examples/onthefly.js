@@ -43,7 +43,7 @@ function getHttpsOptionsFromDisk(domain, callback) {
     } else {
       fs.readFile(certificatesFolder + domain + '/key.pem', function(err2, keyData) {
         if (err1) {
-          callback(err1);
+          callback(err2);
         } else {
           callback(null, {
             key: keyData,
@@ -157,10 +157,10 @@ function startServer(handler, whitelist) {
         if ('function' === typeof cb) {
           cb(result);
         }
-        
+
         return result;
       }
-      
+
       if (contexts[servername]) {
         console.log('SNI hit for ' + servername);
         // io.js and node >= v0.11.5
@@ -186,7 +186,7 @@ function startServer(handler, whitelist) {
         } else {
           console.log('Rejected by whitelist function');
         }
-        
+
         // node <= v0.11.4 mistakenly returns synchronously
         if ('function' !== typeof cb) {
           return shim(defaultContext);
@@ -235,7 +235,7 @@ startServer(function(req, res) {
 //  app.get('/', function (req, res) {
 //    res.send('Hello encrypted express world\n')
 //  });
-//  
+//
 //  startServer(app, function(servername) {
 //    console.log('whitelist called for '+servername);
 //    return true;
